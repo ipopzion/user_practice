@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -26,8 +25,7 @@ public class UserController {
 
     @GetMapping(value = "/readUser/{userId}")
     public User read(@PathVariable Long userId) {
-        Optional<User> user = userService.readUser(userId);
-        return user.isPresent() ? user.get() : null;
+        return userService.readUserByUserId(userId);
     }
 
     @PutMapping(value = "/update/{userId}")

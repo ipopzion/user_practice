@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Data
 @NoArgsConstructor
@@ -30,4 +31,17 @@ public class User {
 
     @Column(name="email_address")
     private String emailAddress;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(userId, user.userId) && Objects.equals(username, user.username) && Objects.equals(nric, user.nric) && Objects.equals(phoneNumber, user.phoneNumber) && Objects.equals(emailAddress, user.emailAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, username, nric, phoneNumber, emailAddress);
+    }
 }

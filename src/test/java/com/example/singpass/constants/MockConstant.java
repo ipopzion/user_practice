@@ -4,7 +4,7 @@ import com.example.singpass.entities.User;
 
 public class MockConstant {
 
-    public static Long mockUserId = Long.valueOf(1489);
+    public static Long mockUserId = 1489L;
     public static String mockUsername = "Ah Beng";
     public static String mockNric = "T0123456A";
     public static int mockPhoneNumber = 91234567;
